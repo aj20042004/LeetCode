@@ -1,0 +1,21 @@
+// Two Sum
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+
+        unordered_map<int,int> difference_store;
+
+        for (int i = 0; i < nums.size(); i++) {
+
+            int diff_number = target - nums[i];
+
+            if (difference_store.find(diff_number) != difference_store.end()) {
+                return {difference_store[diff_number],i};
+            }
+
+            difference_store[nums[i]] = i;
+        }
+        return {};
+        
+    }
+};
