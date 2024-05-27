@@ -1,0 +1,23 @@
+// First Unique Character in a String
+class Solution {
+public:
+    int firstUniqChar(string s) {
+
+        unordered_map<char,int> storage;
+
+        // Storing the frequency count of each alphabet in unordered map
+        for (char alpha : s) {
+            storage[alpha]++;
+        }
+
+        // Iterating through the string "s" to check the first non-repeating character
+        for (int k = 0; k < s.size(); k++) {
+
+            if (storage[s[k]] == 1) {
+                return k;
+            }
+        }
+
+        return -1;
+    }
+};
