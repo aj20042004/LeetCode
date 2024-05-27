@@ -1,0 +1,21 @@
+// First Letter to Appear Twice
+class Solution {
+public:
+    char repeatedCharacter(string s) {
+
+        unordered_set<char> find_duplicate;
+
+        for (char alpha: s) {
+            
+            if (find_duplicate.find(alpha) != find_duplicate.end()) {
+                return alpha;
+            }
+
+            find_duplicate.insert(alpha);
+
+        }
+
+        return ' ';
+        
+    }
+};
