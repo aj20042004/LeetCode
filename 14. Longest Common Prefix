@@ -1,0 +1,23 @@
+// Longest Common Prefix
+
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        
+        if (strs.empty()) {return "";}
+
+        string prefix_char = strs[0];
+
+        for (int i = 1; i < strs.size(); i++) { 
+            
+            /* The find function in C++ returns the starting index of the substring if it is found. If the prefix is found at the start of the string strs[i], strs[i].find(prefix) will return 0.*/
+            while (strs[i].find(prefix_char) != 0) {
+                prefix_char = prefix_char.substr(0,prefix_char.size()-1);
+                if  (prefix_char.empty()) {return "";}
+            }
+        }
+
+        return prefix_char;
+
+    }
+};
