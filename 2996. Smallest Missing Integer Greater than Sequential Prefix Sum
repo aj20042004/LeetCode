@@ -1,0 +1,30 @@
+// Smallest Missing Integer Greater than Sequential Prefix Sum
+class Solution {
+public:
+    int missingInteger(vector<int>& nums) {
+
+        unordered_set<int> storage;
+        int prefix_sum = nums[0];
+
+        for (int j = 1; j < nums.size(); j++) {
+
+            if (nums[j] == nums[j-1]+1) {
+                prefix_sum += nums[j];
+            }
+            else {
+                break;
+            }
+        }
+
+        for (int i : nums) {
+            storage.insert(i);
+        }
+
+        while (storage.find(prefix_sum) != storage.end()) {
+            prefix_sum++;
+        }
+
+        return prefix_sum;
+
+    }
+};
