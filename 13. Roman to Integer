@@ -1,0 +1,29 @@
+// Roman to Integer
+class Solution {
+public:
+    int romanToInt(string s) {
+
+        unordered_map<char,int> Symbol = {
+            {'I',1},{'V',5},{'X',10},{'L',50},{'C',100},{'D',500},{'M',1000}
+        };
+
+        int total_val = 0;
+        int prev_val = 0;
+
+        for (int i = s.size() - 1; i >= 0; i--) {
+
+            int current_val = Symbol[s[i]];
+            
+            if (current_val < prev_val) {
+                total_val -= current_val;
+            }
+            else {
+                total_val += current_val;
+            }
+
+            prev_val = current_val;
+        }
+
+        return total_val;   
+    }
+};
