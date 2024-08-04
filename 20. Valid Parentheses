@@ -1,0 +1,41 @@
+// Valid Parentheses
+class Solution {
+public:
+    bool isValid(string s) {
+        
+        unordered_map<char,char> Paren = {
+            { ')' , '(' }, 
+            { '}' , '{' },
+            { ']' , '[' }
+        };
+
+        stack<char> store;
+        char currentParen;
+
+        for (int i = 0; i < s.size(); i++) {
+
+            // Checking whether it's closing parentheses
+            if (Paren.count(s[i])) {
+
+                if (store.empty()) {currentParen = '#';}
+                else {currentParen = store.top();}
+
+                store.pop();
+
+                if (Paren[s[i]] != currentParen) {return false;}
+                
+            }
+
+             
+            // If it's a Opening parentheses
+            else {
+                store.push(s[i]);
+            }
+
+        }
+
+        return store.empty();
+
+    }
+
+};
