@@ -1,0 +1,41 @@
+Solution 1 - 
+
+// Single Number
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        
+        unordered_map<int,int> store;
+
+        for (int num : nums) {
+            store[num]++;
+        }
+
+        for (const auto& pair : store) {
+            if (pair.second == 1) {
+                return pair.first;
+            }
+        }
+
+        return 0;
+        
+    }
+}; // Time Complexity: O(n) , Space Complexity: O(n)
+
+
+Solution 2 -
+
+// Single Number
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+
+        int result = 0;
+
+        for (int num : nums) {
+            result ^= num;
+        }
+
+        return result;
+    }
+};  // Time Complexity: O(n) , Space Complexity: O(1)
