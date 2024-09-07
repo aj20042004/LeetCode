@@ -1,0 +1,17 @@
+// Contains Duplicate
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        unordered_map<int,int> scan_duplicate;
+
+        for (int num: nums) {
+            scan_duplicate[num]++;
+        }
+
+        for (auto i: scan_duplicate) {
+            if (i.second >= 2) {return true;}
+        }
+
+        return false;
+    }
+};
