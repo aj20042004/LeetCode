@@ -1,3 +1,4 @@
+Solution 1:
 // Add Digits
 class Solution {
 public:
@@ -13,4 +14,18 @@ public:
 
         return num;
     }
-};
+};  // Time Complexity - O(N)
+
+
+Solution 2:
+// Add Digits
+class Solution {
+public:
+    int addDigits(int num) {
+        
+        if (num == 0) {return 0;}
+
+        return 1 + (num - 1) % 9;
+
+    }
+}; // Time Complexity - O(1)
