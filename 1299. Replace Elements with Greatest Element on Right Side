@@ -1,3 +1,4 @@
+Solution 1:
 // Replace Elements with Greatest Element on Right Side
 class Solution {
 public:
@@ -25,3 +26,28 @@ public:
         return arr;
     }
 }; // Time Complexity: O(N^2)
+
+
+Solution 2:
+// Replace Elements with Greatest Element on Right Side
+class Solution {
+public:
+    vector<int> replaceElements(vector<int>& arr) {
+        
+        // Initializing with -1 because the last element is always -1
+        int right_max = -1;
+
+        // Iterating the vector in reverse order
+        for (int i = arr.size() - 1; i >= 0; i-- ) {
+            
+            int new_max = max(arr[i],right_max);
+            arr[i] = right_max ;
+            right_max = new_max;
+
+        }
+
+        return arr;
+        
+    } // Time Complexity: O(N)
+};
+
