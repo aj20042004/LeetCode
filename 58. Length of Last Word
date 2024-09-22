@@ -1,0 +1,20 @@
+// Length of Last Word
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
+        
+        int length = 0;
+        int i = s.size() - 1;
+
+        // Iterating through each element, skip whitespace, count the char until we reach a whitespace
+        while (s[i] == ' ') {i--;}
+        
+        while (i >= 0 && s[i] != ' ') {
+            length++;
+            i--;
+        }
+        
+        return length;
+
+    }
+}; Time Complexity: O(N)
