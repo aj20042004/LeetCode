@@ -1,0 +1,26 @@
+# Merge Strings Alternately
+class Solution(object):
+    def mergeAlternately(self, word1, word2):
+        """
+        :type word1: str
+        :type word2: str
+        :rtype: str
+        """
+        help_1 = 0
+        help_2 = 0
+        result = ""
+
+        while help_1 < len(word1) and help_2 < len(word2):
+            result += word1[help_1] + word2[help_2]          
+            help_1 += 1
+            help_2 += 1
+        
+        while help_1 < len(word1):
+            result += word1[help_1]
+            help_1 += 1
+        
+        while help_2 < len(word2):
+            result += word2[help_2]
+            help_2 += 1
+
+        return result  #Time Complexity: O(N)
