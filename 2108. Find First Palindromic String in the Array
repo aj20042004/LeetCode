@@ -1,0 +1,19 @@
+# Find First Palindromic String in the Array
+class Solution(object):
+    def firstPalindrome(self, words):
+        """
+        :type words: List[str]
+        :rtype: str
+        """
+
+        for i in range(len(words)):
+            left = 0
+            right = len(words[i]) - 1
+
+            while words[i][left] == words[i][right]:
+                if left >= right:
+                    return words[i]
+                left += 1
+                right -= 1
+                
+        return ""
