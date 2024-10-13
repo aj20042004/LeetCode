@@ -1,0 +1,17 @@
+# Check If Two String Arrays are Equivalent
+class Solution(object):
+    def arrayStringsAreEqual(self, word1, word2):
+        """
+        :type word1: List[str]
+        :type word2: List[str]
+        :rtype: bool
+        """
+        result_word1 = word1[0]
+        for right_word1 in range(1,len(word1)):
+            result_word1 += word1[right_word1]
+
+        result_word2 = word2[0]
+        for right_word2 in range(1,len(word2)):
+            result_word2 += word2[right_word2]
+
+        return result_word1 == result_word2
