@@ -1,0 +1,21 @@
+# Arranging Coins
+class Solution:
+    def arrangeCoins(self, n: int) -> int:
+
+        low = 1
+        high = n
+        res = 0
+
+        while low <= high:
+            
+            mid = (low + high) // 2
+            coins = (mid / 2) * (mid + 1)
+
+            if coins > n:
+                high = mid - 1
+            
+            else:
+                low = mid + 1
+                res = max(mid,res)
+        
+        return res
