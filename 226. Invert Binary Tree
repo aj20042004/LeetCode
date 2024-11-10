@@ -1,3 +1,4 @@
+Solution 1: C++
 // Invert Binary Tree
 /**
  * Definition for a binary tree node.
@@ -24,3 +25,24 @@ public:
         return root;   
     }
 };
+
+Solution 2: Python
+
+# Invert a Binary Tree
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+class Solution:
+    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        
+        if not root:
+            return None
+
+        root.left, root.right = self.invertTree(root.right), self.invertTree(root.left)
+
+        return root
+
