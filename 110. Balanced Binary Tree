@@ -1,3 +1,4 @@
+Solution 1: C++
 // Balanced Binary Tree
 /**
  * Definition for a binary tree node.
@@ -31,3 +32,34 @@ private:
         return max(left_subtree,right_subtree) + 1;
     }
 };
+
+Solution 2: Python
+
+# Balanced Binary Tree
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isBalanced(self, root: Optional[TreeNode]) -> bool:
+        
+        if not root:
+            return True
+
+        if abs(self.CalculateHeight(root.left) - self.CalculateHeight(root.right)) > 1:
+            return False
+
+        return self.isBalanced(root.left) and self.isBalanced(root.right)
+
+    def CalculateHeight(self, root: Optional[TreeNode]) -> int:
+
+        if not root:
+            return 0
+
+        leftTree = self.CalculateHeight(root.left)
+        rightTree = self.CalculateHeight(root.right)
+
+        return max(leftTree,rightTree) + 1
+        
