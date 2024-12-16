@@ -1,0 +1,19 @@
+# Verifying an Alien Dictionary
+class Solution:
+    def isAlienSorted(self, words: List[str], order: str) -> bool:
+        
+        IndexOrder = { c: i for i, c in enumerate(order)}
+
+        for i in range(len(words)-1):
+            words_1 , words_2 = words[i], words[i+1]
+
+            for j in range(len(words_1)):
+                if len(words_2) == j:
+                    return False
+
+                if words_1[j] != words_2[j]:
+                    if IndexOrder[words_2[j]] < IndexOrder[words_1[j]]:
+                        return False
+                    break
+
+        return True
