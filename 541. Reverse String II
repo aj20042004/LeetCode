@@ -1,0 +1,34 @@
+# Reverse String II
+class Solution(object):
+    def reverseStr(self, s, k):
+        """
+        :type s: str
+        :type k: int
+        :rtype: str
+        """
+        #Converting to list to swap in place
+        s = list(s)
+
+        total_size = len(s)
+        i = 0
+
+        #Iterating through the list
+        while i < total_size:
+            
+            #Start position to reverse
+            left = i
+
+            #End position to reverse
+            right = min(i + k - 1, total_size - 1)
+            
+            #Reversing the k characters
+            while left < right:
+                s[left], s[right] = s[right], s[left]
+                left += 1
+                right -= 1
+            
+            # Increasing by 2k
+            i += 2 * k
+        
+        #Converting the list back to string
+        return "".join(s)
